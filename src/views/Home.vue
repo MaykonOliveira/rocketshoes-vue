@@ -36,7 +36,7 @@ export default {
 <style scoped lang="scss">
 #grid-list {
   display: grid;
-  grid-gap: 10px;
+  grid-gap: 20px;
   grid-template-columns: repeat(3, 1fr);
   list-style: none;
 }
