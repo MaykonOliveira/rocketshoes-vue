@@ -1,9 +1,9 @@
 <template>
   <ul id="grid-list">
-    <li class="grid-item">
-      <img src="https://rocketseat-cdn.s3-sa-east-1.amazonaws.com/modulo-redux/tenis1.jpg" />
-      <strong>Tênis de Caminhada Leve Confortável</strong>
-      <span>R$ 179,90</span>
+    <li class="grid-item" v-for="product in products" :key="product.id">
+      <img :src="product.image" />
+      <strong>{{ product.title }}</strong>
+      <span>R$ {{ product.price }}</span>
 
       <button>
         <div>
@@ -17,12 +17,18 @@
 </template>
 
 <script>
+import api from '@/services/api';
+
 export default {
   name: 'Home',
   data() {
     return {
       products: [],
     };
+  },
+  async created() {
+    const response = await api.get('/products');
+    this.products = response.data;
   },
 };
 </script>
