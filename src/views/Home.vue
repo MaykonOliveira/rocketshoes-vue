@@ -3,7 +3,7 @@
     <li class="grid-item" v-for="product in products" :key="product.id">
       <img :src="product.image" />
       <strong>{{ product.title }}</strong>
-      <span>R$ {{ product.price }}</span>
+      <span>{{ product.priceFormatted }}</span>
 
       <button>
         <div>
@@ -29,6 +29,16 @@ export default {
   async created() {
     const response = await api.get('/products');
     this.products = response.data;
+
+    this.products = this.products.map(product => {
+      const priceFormatted = new Intl.NumberFormat('pt-BR', {
+        style: 'currency',
+        currency: 'BRL',
+      }).format(product.price);
+
+      const productFormatted = { ...product, priceFormatted };
+      return productFormatted;
+    });
   },
 };
 </script>
