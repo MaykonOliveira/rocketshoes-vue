@@ -5,7 +5,7 @@
       <strong>{{ product.title }}</strong>
       <span>{{ product.priceFormatted }}</span>
 
-      <button>
+      <button @click="handleAddCartProduct(product.id)">
         <div>
           <i class="fas fa-cart-plus"></i>
           0
@@ -19,12 +19,19 @@
 <script>
 import api from '@/services/api';
 
+console.log('Escrevendo tela');
+
 export default {
   name: 'Home',
   data() {
     return {
       products: [],
     };
+  },
+  methods: {
+    handleAddCartProduct(id) {
+      console.log(`Adicionando produto ${id}`);
+    },
   },
   async created() {
     const response = await api.get('/products');
