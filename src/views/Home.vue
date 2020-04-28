@@ -47,7 +47,7 @@ export default {
     max-width: 250px;
   }
 
-  > strong {
+  strong {
     font-size: 16px;
     line-height: 20px;
     color: #333;
