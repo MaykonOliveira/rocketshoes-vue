@@ -22,7 +22,6 @@ import api from '@/services/api';
 console.log('Escrevendo tela');
 
 export default {
-  name: 'Home',
   data() {
     return {
       products: [],
@@ -116,6 +115,18 @@ export default {
       text-align: center;
       font-weight: bold;
     }
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  #grid-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media only screen and (max-width: 625px) {
+  #grid-list {
+    grid-template-columns: repeat(1, 1fr);
   }
 }
 </style>
