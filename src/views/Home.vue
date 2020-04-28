@@ -5,10 +5,10 @@
       <strong>{{ product.title }}</strong>
       <span>{{ product.priceFormatted }}</span>
 
-      <button @click="handleAddCartProduct(product.id)">
+      <button @click="handleAddCartProduct(product)">
         <div>
           <i class="fas fa-cart-plus"></i>
-          0
+          {{ amount[product.id] || 0 }}
         </div>
         <span>ADICIONAR AO CARRINHO</span>
       </button>
@@ -17,6 +17,7 @@
 </template>
 
 <script>
+import { mapGetters, mapActions } from 'vuex';
 import api from '@/services/api';
 
 console.log('Escrevendo tela');
@@ -28,9 +29,17 @@ export default {
     };
   },
   methods: {
-    handleAddCartProduct(id) {
-      console.log(`Adicionando produto ${id}`);
+    ...mapActions('cart', ['addCartProduct']),
+    handleAddCartProduct(product) {
+      try {
+        this.addCartProduct(product);
+      } catch (err) {
+        console.error('Not possible add product!');
+      }
     },
+  },
+  computed: {
+    ...mapGetters('cart', ['amount']),
   },
   async created() {
     const response = await api.get('/products');

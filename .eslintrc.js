@@ -15,6 +15,7 @@ module.exports = {
     'no-console': 'off',
     'no-debugger': 'off',
     'arrow-parens': 'off',
+    'no-param-reassign': 'off',
   },
   extends: ['plugin:vue/essential', '@vue/airbnb'],
 };

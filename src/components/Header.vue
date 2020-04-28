@@ -1,5 +1,3 @@
-import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
-
 <template>
   <div id="header">
     <router-link id="logo" to="/">
@@ -9,7 +7,7 @@ import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
     <router-link to="/cart" id="cart-badge">
       <div>
         <strong>Meu carrinho</strong>
-        <span> 0 itens </span>
+        <span> {{ Object.keys(amount).length || 0 }} itens </span>
       </div>
       <span>
         <i class="fas fa-shopping-cart"></i>
@@ -19,8 +17,12 @@ import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+
 export default {
-  name: 'Header',
+  computed: {
+    ...mapGetters('cart', ['amount']),
+  },
 };
 </script>
 
