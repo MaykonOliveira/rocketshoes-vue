@@ -65,4 +65,14 @@ export default {
     font-size: 24px;
   }
 }
+
+@media only screen and (max-width: 625px) {
+  #header {
+    flex-direction: column;
+  }
+
+  #cart-badge {
+    margin-top: 20px;
+  }
+}
 </style>

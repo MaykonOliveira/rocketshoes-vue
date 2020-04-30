@@ -104,7 +104,7 @@ export default {
     transition: background 0.2s;
 
     &:hover {
-      background: #573fa8;
+      background: darken(#7159c1, 10);
     }
 
     div {
