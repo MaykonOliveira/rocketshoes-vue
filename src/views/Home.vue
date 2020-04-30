@@ -5,7 +5,7 @@
       <strong>{{ product.title }}</strong>
       <span>{{ product.priceFormatted }}</span>
 
-      <button @click="handleAddCartProduct(product)">
+      <button @click="handleAddCartProduct(product, amount[product.id])">
         <div>
           <i class="fas fa-cart-plus"></i>
           {{ amount[product.id] || 0 }}
@@ -30,12 +30,15 @@ export default {
   },
   methods: {
     ...mapActions('cart', ['addCartProduct']),
-    handleAddCartProduct(product) {
-      try {
-        this.addCartProduct(product);
-      } catch (err) {
-        console.error('Not possible add product!');
+    handleAddCartProduct(product, amount) {
+      let newAmount = amount;
+      if (!newAmount) {
+        newAmount = 1;
+      } else {
+        newAmount += 1;
       }
+
+      this.addCartProduct({ product, amount: newAmount });
     },
   },
   computed: {

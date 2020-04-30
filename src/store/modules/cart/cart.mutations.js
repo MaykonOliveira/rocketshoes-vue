@@ -18,19 +18,10 @@ function updateProduct(state, productIndex, amount) {
 export default {
   addCartProduct(state, payload) {
     const productIndex = state.cart.findIndex(product => product.id === payload.id);
-
     if (productIndex === -1) {
-      const subTotalFormatted = formatCurrency(payload.price);
-
       state.cart.push({
         ...payload,
-        amount: 1,
-        subTotalFormatted,
-        subTotal: payload.price,
       });
-    } else {
-      const productFind = state.cart[productIndex];
-      updateProduct(state, productIndex, productFind.amount + 1);
     }
   },
   updateProductAmount(state, payload) {
