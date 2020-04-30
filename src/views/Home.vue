@@ -20,7 +20,7 @@
 import { mapGetters, mapActions } from 'vuex';
 import api from '@/services/api';
 
-console.log('Escrevendo tela');
+import formatCurrency from '@/util/formatCurrency';
 
 export default {
   data() {
@@ -46,11 +46,7 @@ export default {
     this.products = response.data;
 
     this.products = this.products.map(product => {
-      const priceFormatted = new Intl.NumberFormat('pt-BR', {
-        style: 'currency',
-        currency: 'BRL',
-      }).format(product.price);
-
+      const priceFormatted = formatCurrency(product.price);
       const productFormatted = { ...product, priceFormatted };
       return productFormatted;
     });

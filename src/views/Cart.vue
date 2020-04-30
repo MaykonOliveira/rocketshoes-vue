@@ -27,7 +27,7 @@
               <button type="button">
                 <i class="fas fa-minus-circle"></i>
               </button>
-              <input readonly :value="product.amount" type="number" />
+              <input readonly :value="product.amount" />
               <button type="button">
                 <i class="fas fa-plus-circle"></i>
               </button>
@@ -49,7 +49,7 @@
       <button type="button">FINALIZAR PEDIDO</button>
       <div>
         <span>TOTAL</span>
-        <strong>R$ 1.399,20</strong>
+        <strong>{{ total }}</strong>
       </div>
     </footer>
   </div>
@@ -60,7 +60,7 @@ import { mapGetters } from 'vuex';
 
 export default {
   computed: {
-    ...mapGetters('cart', ['cart']),
+    ...mapGetters('cart', ['cart', 'total']),
   },
 };
 </script>
@@ -121,7 +121,7 @@ table {
     border-radius: 4px;
     color: #666;
     padding: 6px;
-    width: 50px;
+    width: 30px;
   }
 }
 

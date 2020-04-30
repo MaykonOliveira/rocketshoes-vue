@@ -1,13 +1,11 @@
+import formatCurrency from '@/util/formatCurrency';
+
 export default {
   addCartProduct(state, payload) {
-    console.log(payload);
     const productIndex = state.cart.findIndex(product => product.id === payload.id);
 
     if (productIndex === -1) {
-      const subTotalFormatted = new Intl.NumberFormat('pt-BR', {
-        style: 'currency',
-        currency: 'BRL',
-      }).format(payload.price);
+      const subTotalFormatted = formatCurrency(payload.price);
 
       state.cart.push({
         ...payload,
@@ -20,10 +18,7 @@ export default {
 
       const amount = productFind.amount + 1;
       const subTotal = productFind.price * amount;
-      const subTotalFormatted = new Intl.NumberFormat('pt-BR', {
-        style: 'currency',
-        currency: 'BRL',
-      }).format(subTotal);
+      const subTotalFormatted = formatCurrency(subTotal);
 
       const productUpdated = {
         ...productFind,
