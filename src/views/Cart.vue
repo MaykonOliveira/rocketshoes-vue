@@ -24,11 +24,11 @@
           </td>
           <td>
             <div class="amount-controll">
-              <button type="button">
+              <button type="button" @click="handleUpdateAmount(product.id, product.amount-1)">
                 <i class="fas fa-minus-circle"></i>
               </button>
               <input readonly :value="product.amount" />
-              <button type="button">
+              <button type="button" @click="handleUpdateAmount(product.id, product.amount+1)">
                 <i class="fas fa-plus-circle"></i>
               </button>
             </div>
@@ -56,9 +56,15 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+import { mapGetters, mapActions } from 'vuex';
 
 export default {
+  methods: {
+    ...mapActions('cart', ['updateProductAmount']),
+    handleUpdateAmount(id, amount) {
+      this.updateProductAmount({ id, amount });
+    },
+  },
   computed: {
     ...mapGetters('cart', ['cart', 'total']),
   },

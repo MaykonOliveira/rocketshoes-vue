@@ -1,5 +1,20 @@
 import formatCurrency from '@/util/formatCurrency';
 
+function updateProduct(state, productIndex, amount) {
+  const productFind = state.cart[productIndex];
+  const subTotal = productFind.price * amount;
+  const subTotalFormatted = formatCurrency(subTotal);
+
+  const productUpdated = {
+    ...productFind,
+    amount,
+    subTotal,
+    subTotalFormatted,
+  };
+
+  state.cart.splice(productIndex, 1, productUpdated);
+}
+
 export default {
   addCartProduct(state, payload) {
     const productIndex = state.cart.findIndex(product => product.id === payload.id);
@@ -15,19 +30,11 @@ export default {
       });
     } else {
       const productFind = state.cart[productIndex];
-
-      const amount = productFind.amount + 1;
-      const subTotal = productFind.price * amount;
-      const subTotalFormatted = formatCurrency(subTotal);
-
-      const productUpdated = {
-        ...productFind,
-        amount,
-        subTotal,
-        subTotalFormatted,
-      };
-
-      state.cart.splice(productIndex, 1, productUpdated);
+      updateProduct(state, productIndex, productFind.amount + 1);
     }
+  },
+  updateProductAmount(state, payload) {
+    const productIndex = state.cart.findIndex(product => product.id === payload.id);
+    updateProduct(state, productIndex, payload.amount);
   },
 };
