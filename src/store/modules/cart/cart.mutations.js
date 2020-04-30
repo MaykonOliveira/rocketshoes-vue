@@ -37,4 +37,8 @@ export default {
     const productIndex = state.cart.findIndex(product => product.id === payload.id);
     updateProduct(state, productIndex, payload.amount);
   },
+  removeCartProduct(state, id) {
+    const productIndex = state.cart.findIndex(product => product.id === id);
+    state.cart.splice(productIndex, 1);
+  },
 };

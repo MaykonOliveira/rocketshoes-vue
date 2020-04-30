@@ -24,11 +24,17 @@
           </td>
           <td>
             <div class="amount-controll">
-              <button type="button" @click="handleUpdateAmount(product.id, product.amount-1)">
+              <button
+                type="button"
+                @click="updateProductAmount({id: product.id, amount: product.amount-1})"
+              >
                 <i class="fas fa-minus-circle"></i>
               </button>
               <input readonly :value="product.amount" />
-              <button type="button" @click="handleUpdateAmount(product.id, product.amount+1)">
+              <button
+                type="button"
+                @click="updateProductAmount({id: product.id, amount: product.amount+1})"
+              >
                 <i class="fas fa-plus-circle"></i>
               </button>
             </div>
@@ -37,7 +43,7 @@
             <strong>{{ product.subTotalFormatted }}</strong>
           </td>
           <td>
-            <button>
+            <button type="button" @click="removeCartProduct(product.id)">
               <i class="fas fa-trash"></i>
             </button>
           </td>
@@ -60,10 +66,7 @@ import { mapGetters, mapActions } from 'vuex';
 
 export default {
   methods: {
-    ...mapActions('cart', ['updateProductAmount']),
-    handleUpdateAmount(id, amount) {
-      this.updateProductAmount({ id, amount });
-    },
+    ...mapActions('cart', ['updateProductAmount', 'removeCartProduct']),
   },
   computed: {
     ...mapGetters('cart', ['cart', 'total']),
