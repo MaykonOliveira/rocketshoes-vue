@@ -26,14 +26,14 @@
             <div class="amount-controll">
               <button
                 type="button"
-                @click="updateProductAmount({id: product.id, amount: product.amount-1})"
+                @click="updateProductAmount({ id: product.id, amount: product.amount - 1 })"
               >
                 <i class="fas fa-minus-circle"></i>
               </button>
               <input readonly :value="product.amount" />
               <button
                 type="button"
-                @click="updateProductAmount({id: product.id, amount: product.amount+1})"
+                @click="updateProductAmount({ id: product.id, amount: product.amount + 1 })"
               >
                 <i class="fas fa-plus-circle"></i>
               </button>
