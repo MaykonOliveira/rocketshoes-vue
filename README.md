@@ -1,6 +1,5 @@
-<div style="color:white;background-color=black;">
 <h1 align="center">
-    <img src="src/assets/logo.svg" height=100/>
+    <img src="src/assets/logo.png" height=100/>
     <br>
     Rocketshoes
 </h1>
@@ -83,5 +82,3 @@ To run this project you need execute the following steps:
 MIT
 
 See the [License](LICENSE) file.
-
-</div>
