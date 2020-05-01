@@ -1,3 +1,4 @@
+<div style="color:white;background-color=black;">
 <h1 align="center">
     <img src="src/assets/logo.svg" height=100/>
     <br>
@@ -82,3 +83,5 @@ To run this project you need execute the following steps:
 MIT
 
 See the [License](LICENSE) file.
+
+</div>
