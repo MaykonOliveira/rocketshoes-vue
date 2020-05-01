@@ -26,6 +26,10 @@
 
 <img alt="Web" title="web" width="900" src="examples/images/home.png">
 
+## Home Responsive
+
+<img alt="Web" title="web" width="900" src="examples/images/home_responsive.png">
+
 ## Cart
 
 <img alt="Web" title="web" width="900" src="examples/images/cart.png">
@@ -52,6 +56,8 @@ To run this project you need execute the following steps:
 # Observations
 
 - The backend used is provided by a `server.json` presente in the root of the project.
+
+- Responsive layout created in the roots way.
 
 # What are the next steps?
 
