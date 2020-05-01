@@ -24,15 +24,15 @@
 
 ## Home
 
-<img alt="Web" title="web" width="900" src="examples/images/home.png">
+<img alt="Web" title="web" height="500" width="900" src="examples/images/home.png">
 
 ## Home Responsive
 
-<img alt="Web" title="web" width="900" src="examples/images/home_responsive.png">
+<img alt="Web" title="web" height="500" width="900" src="examples/images/home_responsive.png">
 
 ## Cart
 
-<img alt="Web" title="web" width="900" src="examples/images/cart.png">
+<img alt="Web" title="web" height="500" width="900" src="examples/images/cart.png">
 
 # Prerequisites
 
