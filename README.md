@@ -24,27 +24,11 @@
 
 ## Home
 
-<img alt="Web" title="web" width="900" src="examples/gifs/create.gif">
-
-## Add to cart
-
-<img alt="Web" title="web" width="900" src="examples/gifs/delete.gif">
-
-## Quantity unavailable
-
-<img alt="Web" title="web" width="900" src="examples/gifs/github_access.gif">
+<img alt="Web" title="web" width="900" src="examples/images/home.png">
 
 ## Cart
 
-<img alt="Web" title="web" width="900" src="examples/gifs/github_access.gif">
-
-## Update quantity
-
-<img alt="Web" title="web" width="900" src="examples/gifs/github_access.gif">
-
-## Delete product
-
-<img alt="Web" title="web" width="900" src="examples/gifs/github_access.gif">
+<img alt="Web" title="web" width="900" src="examples/images/cart.png">
 
 # Prerequisites
 
